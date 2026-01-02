@@ -35,9 +35,27 @@ function ProcessFlowInner({ stages, onStageClick, selectedStageId }: ProcessFlow
 
     const nodesList: Node[] = [];
     let currentY = 100;
-    const nodeSpacingX = 280;
+    const nodeSpacingX = 400; // Increased from 280 to spread nodes wider
     const rowSpacingY = 200;
     const nodesPerRow = 4; // Maximum nodes per row
+    const nodeWidth = 250; // Approximate width of a node
+
+    // First pass: calculate the maximum width needed (for centering)
+    let maxNodesInRow = 0;
+    [1, 2, 3].forEach(phase => {
+      const phaseStages = stagesByPhase[phase];
+      if (phaseStages.length === 0) return;
+      const phaseRows = Math.ceil(phaseStages.length / nodesPerRow);
+      for (let row = 0; row < phaseRows; row++) {
+        const nodesInThisRow = Math.min(nodesPerRow, phaseStages.length - (row * nodesPerRow));
+        maxNodesInRow = Math.max(maxNodesInRow, nodesInThisRow);
+      }
+    });
+
+    // Calculate center offset (assuming viewport width, adjust as needed)
+    const estimatedViewportWidth = 1920; // Adjust if needed
+    const totalFlowWidth = (maxNodesInRow - 1) * nodeSpacingX + nodeWidth;
+    const centerOffsetX = (estimatedViewportWidth / 2) - (totalFlowWidth / 2);
 
     // Process each phase
     [1, 2, 3].forEach(phase => {
@@ -51,7 +69,8 @@ function ProcessFlowInner({ stages, onStageClick, selectedStageId }: ProcessFlow
         // Find the original index in the stages array to maintain order
         const originalIndex = stages.findIndex(s => s.id === stage.id);
         
-        const x = colInRow * nodeSpacingX + 100;
+        // Center the flow by adding the center offset
+        const x = colInRow * nodeSpacingX + centerOffsetX;
         const y = currentY + (rowInPhase * rowSpacingY);
         
         nodesList[originalIndex] = {
