@@ -29,7 +29,7 @@ export interface Stage {
   totalHours: number;
   waitTime?: string; // e.g., "5 days" for Stage 12
   roleOwnership: string; // Primary role from stage header
-  activities: Activity[];
+  activities?: Activity[];
   
   // Critical context and principles
   criticalPrinciples?: string[]; // Important execution notes
@@ -68,6 +68,6 @@ export interface Stage {
   managerChecklist?: Array<{ category: string; items: string[] }>;
   
   // AI prompts
-  aiPrompts: AIPrompt[];
+  aiPrompts?: AIPrompt[];
 }
 

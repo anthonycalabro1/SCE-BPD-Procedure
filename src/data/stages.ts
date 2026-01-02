@@ -493,7 +493,8 @@ export const stages: Stage[] = [
       'Content ready for use in Stage 4 (To-Be design and requirements)'
     ],
     dependencies: [1, 2],
-    nextStage: 4
+    nextStage: 4,
+    aiPrompts: []
   },
   {
     id: 4,
@@ -639,7 +640,9 @@ export const stages: Stage[] = [
       'Workshop focus areas identified'
     ],
     dependencies: [4],
-    nextStage: 6
+    nextStage: 6,
+    activities: [],
+    aiPrompts: []
   },
   {
     id: 6,
@@ -714,7 +717,9 @@ export const stages: Stage[] = [
       'Scope creep (trying to solve problems outside this L3 process)'
     ],
     dependencies: [5],
-    nextStage: 7
+    nextStage: 7,
+    activities: [],
+    aiPrompts: []
   },
   {
     id: 7,
@@ -986,7 +991,9 @@ export const stages: Stage[] = [
       'Workshop focus areas identified'
     ],
     dependencies: [8],
-    nextStage: 10
+    nextStage: 10,
+    activities: [],
+    aiPrompts: []
   },
   {
     id: 10,
@@ -1037,7 +1044,9 @@ export const stages: Stage[] = [
       'Foundation for Stage 11 (Requirements Refinement)'
     ],
     dependencies: [9],
-    nextStage: 11
+    nextStage: 11,
+    activities: [],
+    aiPrompts: []
   },
   {
     id: 11,
@@ -1077,7 +1086,8 @@ export const stages: Stage[] = [
       'Gap analysis reflects workshop decisions'
     ],
     dependencies: [10],
-    nextStage: 12
+    nextStage: 12,
+    aiPrompts: []
   },
   {
     id: 12,
@@ -1117,7 +1127,8 @@ export const stages: Stage[] = [
       'Onshore validates all substantive changes'
     ],
     dependencies: [11],
-    nextStage: 13
+    nextStage: 13,
+    aiPrompts: []
   },
   {
     id: 13,
@@ -1160,7 +1171,8 @@ export const stages: Stage[] = [
       'Streamlined SI handoff package (4 artifacts: BRD, As-Is flow, To-Be flow, Master Requirements Workbook)',
       'Updated tracker'
     ],
-    dependencies: [12]
+    dependencies: [12],
+    aiPrompts: []
   }
 ];
 

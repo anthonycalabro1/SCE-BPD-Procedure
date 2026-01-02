@@ -46,7 +46,9 @@ function StageNode({ data, selected }: NodeProps<StageNodeData>) {
           </span>
         </div>
         {data.phaseMilestone && (
-          <CheckCircle className={`w-5 h-5 ${colors.text}`} title="Phase Milestone" />
+          <div title="Phase Milestone">
+            <CheckCircle className={`w-5 h-5 ${colors.text}`} />
+          </div>
         )}
       </div>
 

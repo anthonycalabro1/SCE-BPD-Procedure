@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { X, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Clock, Users, FileText, Target, ArrowRight, Flag } from 'lucide-react';
 import { Stage } from '../types/stage';
 import CopyButton from './CopyButton';
-import { PHASE_GOALS, PHASE_MILESTONES } from '../data/stages';
 
 interface StageDetailPanelProps {
   stage: Stage;
