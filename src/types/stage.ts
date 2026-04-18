@@ -69,5 +69,8 @@ export interface Stage {
   
   // AI prompts
   aiPrompts?: AIPrompt[];
+
+  /** BRD Master template section ids (`brdOutline.ts`) most associated with this stage */
+  primaryBrdSectionIds?: string[];
 }
 

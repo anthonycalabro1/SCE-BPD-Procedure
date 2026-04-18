@@ -8,23 +8,27 @@
     "build": "tsc && vite build",
     "postbuild": "node -e \"const fs=require('fs');const path=require('path');fs.writeFileSync(path.join(process.cwd(),'dist','.nojekyll'),'');\"",
     "preview": "vite preview",
+    "content:extract": "python scripts/extract_master_brd_guidance.py && python scripts/extract_procedure_by_section.py",
     "deploy": "npm run build && node -e \"const fs=require('fs');const path=require('path');fs.writeFileSync(path.join(process.cwd(),'dist','.nojekyll'),'');\" && gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactflow": "^11.11.0"
+    "react-markdown": "^10.1.0",
+    "reactflow": "^11.11.0",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.3.3",
-    "vite": "^7.3.0",
-    "gh-pages": "^6.1.1"
+    "vite": "^7.3.0"
   }
 }

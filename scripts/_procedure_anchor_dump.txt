@@ -1,0 +1,40 @@
+total_paras=2246
+
+=== Draft Section 1.1 ===
+171: Draft Section 1.1 - Project Background (1 hour):
+
+=== Extract Capabilities from Repository ===
+177: Extract Capabilities from Repository (1.5 hours with AI): Run AI prompt (see Appendix A.2.2: Capabilities Extraction from Repository) Process:
+
+=== Draft Success Criteria ===
+215: Draft Success Criteria from Industry Benchmarks (1 hour with AI): Run AI prompt (see Appendix A.2.2: Capabilities Extraction from Repository) Process:
+
+=== Create Section Templates ===
+220: Create Section Templates with Placeholders (0.5 hours): Section 1.3.1 - Sponsorship & Stakeholders:
+
+=== STAGE 3: ===
+250: STAGE 3: SCE Validation Session (4.4 hours - Onshore)
+
+=== STAGE 4: ===
+399: STAGE 4: To-Be Process Design (7 hours - Onshore with AI)
+2073: STAGE 4: To-Be Process Design
+
+=== To-Be Process Design ===
+399: STAGE 4: To-Be Process Design (7 hours - Onshore with AI)
+416: Run AI prompt to generate To-Be process design (see Appendix A.4.1: To-Be Process Design from As-Is) (2 hrs)
+2073: STAGE 4: To-Be Process Design
+2074: A.4.1: To-Be Process Design from As-Is
+
+=== STAGE 8: ===
+859: STAGE 8: Requirements Generation (9.4 hours - Offshore with Onshore QA)
+2189: STAGE 8: Requirements Generation
+
+=== User Journey Mapping ===
+885: Activity 1: User Journey Mapping (2 hours - Offshore with AI)
+891: AI Prompt: See Appendix A.8. User Journey Mapping"
+2191: A.8.1: User Journey Mapping
+
+=== Populate Remaining BRD Sections ===
+991: Activity 7: Populate Remaining BRD Sections (0.4 hours - Offshore)
+
+=== Definitions ===

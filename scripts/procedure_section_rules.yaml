@@ -1,0 +1,132 @@
+# Map BRD outline ids → paragraph slices in SCE BRD Factory-Line Work Procedure.docx
+# Ids match src/data/brdOutline.ts (section 4 = Specific Requirements, 5 = Reference, 6 = Approvals).
+# optional: true → empty extraction does not warn.
+# Word en-dashes are normalized to ASCII "-" in extract_procedure_by_section.clean().
+
+doc-title:
+  start_contains: "BRD Factory-Line Work Procedure"
+  end_before: "Executive Summary"
+
+doc-meta-1:
+  optional: true
+
+doc-meta-2:
+  optional: true
+
+doc-meta-3:
+  optional: true
+
+"1":
+  start_contains: "STAGE 2: Repository Mining & Solution Requirements Filtering"
+  end_before: "STAGE 4: To-Be Process Design (7 hours - Onshore with AI)"
+
+"1.1":
+  start_contains: "Draft Section 1.1 - Project Background (1 hour):"
+  end_before: "Extract Capabilities from Repository"
+
+"1.2":
+  start_contains: "Extract Capabilities from Repository (1.5 hours with AI):"
+  end_before: "Create Section Templates with Placeholders"
+
+"1.2.1":
+  start_contains: "Extract Capabilities from Repository (1.5 hours with AI):"
+  end_before: "Solution Requirements Mapping (2 hours - Offshore with AI):"
+
+"1.2.2":
+  start_contains: "Draft Success Criteria from Industry Benchmarks (1 hour with AI):"
+  end_before: "Create Section Templates with Placeholders"
+
+"1.3":
+  start_contains: "Create Section Templates with Placeholders (0.5 hours): Section 1.3.1 - Sponsorship & Stakeholders:"
+  end_before: "STAGE 4: To-Be Process Design (7 hours - Onshore with AI)"
+
+"1.3.1":
+  start_contains: "Section 1.3.1 - Sponsorship & Stakeholders:"
+  end_before: "Section 1.3.4 - Scope:"
+
+"1.3.2":
+  start_contains: "STAGE 1: Current State Process Mapping (10 hours"
+  end_before: "STAGE 2: Repository Mining & Solution Requirements Filtering"
+
+"1.3.3":
+  optional: true
+
+"1.3.4":
+  start_contains: "Section 1.3.4 - Scope:"
+  end_before: "Section 1.3.5 - Users and Devices:"
+
+# Users + devices (including Stage 3 facilitation prompts) under one BRD subsection
+"1.3.5":
+  start_contains: "Section 1.3.5 - Users and Devices:"
+  end_before: "Segment 4: Scope Boundary Clarification"
+
+"2":
+  start_contains: "Activity 7: Populate Remaining BRD Sections (0.4 hours - Offshore)"
+  end_before: "STAGE 9: Manager Review - Full BRD"
+
+"2.1":
+  start_contains: "STAGE 4: To-Be Process Design (7 hours - Onshore with AI)"
+  end_before: "STAGE 5: Manager Review - Process Flow"
+
+"2.2":
+  start_contains: "Section 2.2 - User Journeys"
+  end_before: "3. Section 2.3 - Detailed User Type Characteristics"
+
+"2.3":
+  start_contains: "3. Section 2.3 - Detailed User Type Characteristics"
+  end_before: "4. Section 2.4 - Business Constraints"
+
+"2.4":
+  start_contains: "4. Section 2.4 - Business Constraints"
+  end_before: "5. Section 2.5 - Business User Environment"
+
+"2.5":
+  start_contains: "5. Section 2.5 - Business User Environment"
+  end_before: "6. Section 2.6 - Business Assumptions & Dependencies"
+
+"2.6":
+  start_contains: "6. Section 2.6 - Business Assumptions & Dependencies"
+  end_before: "Outputs from Stage 8:"
+
+# Specific Requirements (Master template section 4.x)
+"4":
+  start_contains: "STAGE 8: Requirements Generation (9.4 hours - Offshore with Onshore QA)"
+  end_before: "STAGE 9: Manager Review - Full BRD"
+
+"4.1":
+  start_contains: "Activity 2: Business Requirements Generation with Traceability"
+  end_before: "Activity 3: User Acceptance Expectations"
+
+"4.2":
+  start_contains: "Activity 4: Performance Requirements (1 hour - Offshore with AI)"
+  end_before: "Activity 5: Gap Analysis and Categorization"
+
+"4.3":
+  start_contains: "Activity 3: User Acceptance Expectations (1 hour - Offshore with AI)"
+  end_before: "Activity 4: Performance Requirements"
+
+# Reference (Master template section 5.x)
+"5":
+  start_contains: "STAGE 13: Finalization & Handoff (4 hours"
+  end_before: "Handoff Preparation (0.5 hours):"
+
+"5.1":
+  optional: true
+
+"5.2":
+  optional: true
+
+"5.2.1":
+  optional: true
+
+"5.2.2":
+  optional: true
+
+# Procedure doc may still say "Section 4.3" for other references
+"5.3":
+  start_contains: "Ready to populate Section 4.3"
+  end_before: "Activity 4: Performance Requirements"
+
+"6":
+  start_contains: "Approval Package Creation (1.5 hours):"
+  end_before: "Repository Storage (0.5 hours):"

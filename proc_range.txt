@@ -1,0 +1,63 @@
+﻿python : Traceback (most recent call last):
+At C:\Users\calabto\AppData\Local\Temp\ps-script-9f382115-a0c4-4645-85e7-3bc97ef8b309.ps1:86 char:71
++ ... \calabto\OneDrive - EY\Desktop\Cursor\SCE BPD Procedure"; python -c "
++                                                               ~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "<string>", line 19, in <module>
+  File "C:\Program 
+Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 
+19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 43: character maps to <undefined>
+165 Accuracy (reflects SCE's actual process, not idealized version)
+166 Clarity (understandable to someone not in the interviews)
+167 Pain points clearly documented (these become To-Be improvement drivers)
+168 STAGE 2: Repository Mining & Solution Requirements Filtering (5 hours - Offshore)
+169 Objective: Create structured first draft with clear flags for SCE validation, and identify relevant 
+170 Activities:
+171 Draft Section 1.1 - Project Background (1 hour):
+172 Pull AMI 2.0 program overview from ConOps
+173 Summarize business drivers (aging infrastructure, regulatory requirements, customer experience)
+174 Describe how this L3 process fits into overall AMI 2.0 program
+175 Source: ConOps, AMI 1.0 lessons learned, program charter
+176 Mostly reusable across all BRDs with minor L3-specific tweaks
+177 Extract Capabilities from Repository (1.5 hours with AI): Run AI prompt (see Appendix A.2.2: Capabil
+178 Input: Requirements from 3 similar AMI processes from other utilities
+179 AI extracts and synthesizes 10-15 capabilities
+180 Format: "Ability to [verb] [object]"
+181 Flag uncertain items with "[VALIDATE WITH SCE]"
+182 Review AI output for relevance and alignment with process objective
+183 Solution Requirements Mapping (2 hours - Offshore with AI):
+184 CRITICAL NEW ACTIVITY: Identify which of SCE's ~3000 solution requirements are relevant to this L3 p
+185 Context: SCE has developed comprehensive solution requirements organized by:
+186 System-based (~2000): MDMS, HES, DI Hub, Analytics Application
+187 Within each system: Organized by capability area (e.g., MDMS meter reading requirements)
+188 Functional (~1000): Software Baseline, Managed Cloud, Service Requirements, Cyber
+189 Objective: Filter the ~3000 to identify the ~20-50 solution requirements that directly or indirectly
+190 Step 3.1: Identify Relevant Systems & Capability Areas (30 min - Onshore quick review)
+191 Based on As-Is flow from Stage 1, identify which systems are involved
+192 Example: "Off-Cycle Billing" process involves CSS, MDMS, HES
+193 Identify which capability areas are relevant
+194 Example: MDMS meter reading, MDMS VEE, HES on-demand reads
+195 Pull the relevant sections from SCE's solution requirements Excel files
+196 Example: Extract MDMS meter reading requirements section, HES on-demand reads section
+197 Step 3.2: AI-Assisted Filtering (1.5 hours - Offshore)
+198 Run AI filtering prompt (see Appendix A.2.1: Solution Requirements Filtering)
+199 Process:
+200 Input: L3 process details, systems involved, key process steps
+201 Input: Relevant Excel sections from SCE's solution requirements library
+202 AI classifies each requirement: Directly Relevant, Indirectly Relevant, or Not Relevant
+203 Output: Excel table with classification and rationale
+204 Step 3.3: Human Review & Validation (30 min - Onshore)
+205 Review AI's classification
+206 Validate DIRECTLY RELEVANT selections (these will be traced to business requirements)
+207 Spot-check NOT RELEVANT exclusions (ensure we didn't miss anything)
+208 Create initial groupings by process step or capability theme
+209 Output: Filtered list of 20-50 relevant solution requirements ready for Stage 3
+210 Why This Matters:
+211 Ensures business requirements in Stage 3 align with approved solution requirements
+212 Identifies which solution requirements the SI will use to build this process
+213 

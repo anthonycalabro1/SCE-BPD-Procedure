@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { X, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Clock, Users, FileText, Target, ArrowRight, Flag } from 'lucide-react';
+import { X, ChevronDown, ChevronUp, AlertTriangle, CheckCircle, Clock, Users, FileText, Target, ArrowRight, Flag, BookOpen } from 'lucide-react';
 import { Stage } from '../types/stage';
 import CopyButton from './CopyButton';
 
 interface StageDetailPanelProps {
   stage: Stage;
   onClose: () => void;
+  /** Open BRD section view for a Master template section id (e.g. `1.2.1`). */
+  onOpenBrdSection?: (sectionId: string) => void;
 }
 
 interface CollapsibleSectionProps {
@@ -39,7 +41,7 @@ function CollapsibleSection({ title, icon, children, defaultOpen = false }: Coll
   );
 }
 
-export default function StageDetailPanel({ stage, onClose }: StageDetailPanelProps) {
+export default function StageDetailPanel({ stage, onClose, onOpenBrdSection }: StageDetailPanelProps) {
   const phaseColors = {
     1: { bg: 'bg-blue-50', border: 'border-blue-600', text: 'text-blue-900', badge: 'bg-blue-600' },
     2: { bg: 'bg-orange-50', border: 'border-orange-600', text: 'text-orange-900', badge: 'bg-orange-600' },
@@ -103,6 +105,30 @@ export default function StageDetailPanel({ stage, onClose }: StageDetailPanelPro
             </h3>
             <p className="text-gray-700">{stage.objective}</p>
           </div>
+
+          {stage.primaryBrdSectionIds && stage.primaryBrdSectionIds.length > 0 && onOpenBrdSection && (
+            <div className="bg-slate-50 border border-slate-200 rounded-lg p-4">
+              <h3 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-slate-600" />
+                BRD sections (Master template)
+              </h3>
+              <p className="text-xs text-gray-600 mb-2">
+                Open the section-aligned procedure view for parts of the BRD this stage touches.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {stage.primaryBrdSectionIds.map((sid) => (
+                  <button
+                    key={sid}
+                    type="button"
+                    onClick={() => onOpenBrdSection(sid)}
+                    className="text-sm px-2 py-1 rounded-md bg-white border border-slate-300 text-slate-800 hover:bg-slate-100 font-mono"
+                  >
+                    {sid}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Critical Context/Principles */}
           {stage.criticalContext && (
