@@ -65,7 +65,11 @@ function App() {
       if (parsed.sectionId) setSelectedBrdSectionId(parsed.sectionId);
     };
     window.addEventListener('popstate', onPop);
-    return () => window.removeEventListener('popstate', onPop);
+    window.addEventListener('hashchange', onPop);
+    return () => {
+      window.removeEventListener('popstate', onPop);
+      window.removeEventListener('hashchange', onPop);
+    };
   }, []);
 
   const handleStageClick = (stage: Stage) => {

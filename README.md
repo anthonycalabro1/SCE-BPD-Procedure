@@ -7,6 +7,7 @@ An interactive React-based dashboard for visualizing the 13-stage BRD Factory-Li
 - **Two views** (toggle in the header):
   - **Factory line**: Interactive process flow (existing 13-stage canvas).
   - **BRD sections**: Outline aligned to the Master BRD Word template. Each section page shows **(1)** template instructional text from the Master BRD, **(2)** the factory-line procedure excerpt from `SCE BRD Factory-Line Work Procedure.docx`, and **(3)** Appendix A **AI prompts** and dashboard notes last.
+- **Standalone HTML**: `standalone/BRD_Process_Dashboard.html` — a single file you can share and open locally (see **Standalone HTML** below).
 - **Interactive Process Flow**: Visualize all 13 stages in a React Flow canvas with phase color-coding
 - **Detailed Stage Information**: Click any stage node to view comprehensive details including:
   - Objectives and critical context
@@ -49,7 +50,22 @@ npm run dev
 npm run build
 ```
 
-The built files will be in the `dist` directory.
+The built files will be in the `dist` directory (GitHub Pages layout).
+
+### Standalone HTML (share and open locally)
+
+To produce a **single HTML file** you can email, copy to a shared drive, or open with a double-click (no Node or web server required):
+
+```bash
+npm run build:standalone
+```
+
+That writes `standalone/BRD_Process_Dashboard.html`. Open the file in Chrome, Edge, or Firefox. Deep links use the hash when the file is opened from disk, for example:
+
+- Factory line with a stage panel: `BRD_Process_Dashboard.html#stage=8`
+- BRD section view: `BRD_Process_Dashboard.html#view=brd&section=1.2.1`
+
+The GitHub Pages URLs below (`?stage=` / `?view=brd`) are unchanged for the hosted app.
 
 ### BRD content extraction (Word → app)
 
@@ -72,6 +88,8 @@ This runs `scripts/extract_master_brd_guidance.py` (Master template → `brdTemp
 ## Project Structure
 
 ```
+standalone/
+└── BRD_Process_Dashboard.html  # shareable local-file build (`npm run build:standalone`)
 src/
 ├── components/
 │   ├── ProcessFlow.tsx      # Main React Flow canvas

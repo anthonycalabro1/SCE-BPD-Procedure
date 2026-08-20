@@ -8,7 +8,20 @@ export interface ParsedAppUrl {
   stageId: number | null;
 }
 
-export function parseAppUrl(search: string = window.location.search): ParsedAppUrl {
+function isFileProtocol(): boolean {
+  return typeof window !== 'undefined' && window.location.protocol === 'file:';
+}
+
+/** Query string used for http(s); hash is used on file:// so deep links work without a server. */
+function locationSearchString(): string {
+  if (isFileProtocol()) {
+    const hash = window.location.hash.replace(/^#/, '').replace(/^\?/, '');
+    return hash ? `?${hash}` : '';
+  }
+  return window.location.search;
+}
+
+export function parseAppUrl(search: string = locationSearchString()): ParsedAppUrl {
   const p = new URLSearchParams(search);
   const viewRaw = p.get('view');
   const view: AppViewMode = viewRaw === 'brd' ? 'brdSections' : 'factoryLine';
@@ -39,8 +52,25 @@ export function writeAppUrl(
     if (state.stageId != null) p.set('stage', String(state.stageId));
   }
   const qs = p.toString();
+
+  if (isFileProtocol()) {
+    const nextHash = qs ? `#${qs}` : '';
+    if (window.location.hash === nextHash) return;
+    const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`;
+    try {
+      window.history.replaceState({}, '', nextUrl);
+    } catch {
+      window.location.hash = qs;
+    }
+    return;
+  }
+
   const url = window.location.pathname + (qs ? `?${qs}` : '');
-  window.history.replaceState({}, '', url);
+  try {
+    window.history.replaceState({}, '', url);
+  } catch {
+    /* file:// and some embedded browsers reject History API writes */
+  }
 }
 
 export function readLastBrdSection(): string | null {
